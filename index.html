@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escull una persona</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="joc-no-iniciat">
+
+  <!-- PANTALLA STANDBY -->
+  <div class="pantalla-inici" id="pantallaStandby">
+
+    <video autoplay muted loop playsinline class="video-fons">
+      <source src="Imatges/standby.mp4" type="video/mp4">
+    </video>
+
+    <div class="cercle-inici">
+      <img src="Imatges/ma.png" alt="Toca per començar">
+    </div>
+
+    <!-- TITOL -->
+    <div class="contenidor-titol-standby">
+      <div class="imatge-wrapper">
+        <img src="Imatges/fons_titol.png" alt="Títol" class="imatge-titol-standby">
+        <div class="text-desplacant-wrapper">
+          <span class="text-desplacant">CREANT OPORTUNITATS LABORALS A MIDA</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PANTALLA TAULER -->
+  <h1>Escull una persona</h1>
+
+  <div id="tauler"></div>
+
+  <!-- PANTALLA PERSONATGE -->
+  <div id="pantalla-personatge" class="amagat">
+    <h2 class="titol-feina">Quina feina li encaixaria?</h2>
+    <img class="imatge-frase" id="imatge-frase" src="" alt="frase">
+    <div class="contenidor-opcions">
+        <div class="opcio-wrapper">
+            <img class="opcio" id="op1" src="" alt="opció 1">
+            <div class="feedback-wrapper">
+                <img class="imatge-correcte" id="correcte1" src="Imatges/correcte.png">
+                <img class="imatge-incorrecte" id="incorrecte1" src="Imatges/incorrecte.png">
+            </div>
+        </div>
+        <div class="opcio-wrapper">
+            <img class="opcio" id="op2" src="" alt="opció 2">
+            <div class="feedback-wrapper">
+                <img class="imatge-correcte" id="correcte2" src="Imatges/correcte.png">
+                <img class="imatge-incorrecte" id="incorrecte2" src="Imatges/incorrecte.png">
+            </div>
+        </div>
+            <div class="opcio-wrapper">
+            <img class="opcio" id="op3" src="" alt="opció 3">
+                <div class="feedback-wrapper">
+                    <img class="imatge-correcte" id="correcte3" src="Imatges/correcte.png">
+                    <img class="imatge-incorrecte" id="incorrecte3" src="Imatges/incorrecte.png">
+                </div>
+            </div>
+    </div>
+  </div>
+
+  <!-- BOTONS NAVEGACIÓ -->
+  <img id="boto-seguent" src="Imatges/seguent.png" alt="Següent" class="amagat">
+  <div id="boto-tornar" class="amagat">TORNA-HO A PROVAR!</div>
+
+  <!-- BOTÓ REINICIAR -->
+  <button class="boto-reiniciar" onclick="reiniciarJoc()">
+    <img src="Imatges/reiniciar.png" alt="Reiniciar">
+    <span>TORNAR A<br>COMENÇAR</span>
+  </button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

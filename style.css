@@ -1,0 +1,317 @@
+@font-face {
+  font-family: 'Graphik';
+  src: url('fonts/Graphik-Semibold.otf') format('opentype');
+  font-weight: 600;
+}
+
+/* AMAGAR */
+.amagat {
+  display: none !important;
+}
+
+body.joc-no-iniciat h1,
+body.joc-no-iniciat .boto-reiniciar,
+body.joc-no-iniciat #tauler,
+body.joc-no-iniciat #pantalla-personatge {
+  display: none;
+}
+
+/* PANTALLA STANDBY */
+.pantalla-inici {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pantalla-inici.amagar {
+  display: none;
+}
+
+.video-fons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+.cercle-inici {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 40mm;
+  height: 40mm;
+  background: linear-gradient(145deg, #ff9a3c, #e8622a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(232, 98, 42, 0.3);
+  animation: pulsaCercle 2s ease-in-out infinite;
+}
+
+.cercle-inici img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes pulsaCercle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.contenidor-titol-standby {
+  position: fixed;
+  bottom: 100px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2001;
+}
+
+.imatge-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+}
+
+.imatge-titol-standby {
+  width: 100%;
+  display: block;
+}
+
+.text-desplacant-wrapper {
+  font-family: 'Graphik', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 3.5rem); /* el text s'escala depenent de la pantalla*/
+  color: #000000;
+  position: absolute;
+  bottom: 28%;
+  white-space: nowrap;
+  text-align: left;
+  width: auto;
+  right: 5%;
+  left: auto;
+}
+
+/* BASE */
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Graphik', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('Imatges/fons.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* TÍTOL */
+h1 {
+  text-align: center;
+  color: #2d1500;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  margin-top: 120px; 
+  margin-bottom: 50px; /*separacio entre titol i tauler*/
+}
+
+/* BOTÓ REINICIAR */
+.boto-reiniciar {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: #8b8178;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.boto-reiniciar:hover {
+  background: rgba(213, 204, 194, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.boto-reiniciar img {
+  width: 22px;
+  height: 22px;
+}
+
+.boto-reiniciar span {
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* TAULER */
+#tauler {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 3vw 4.5vw;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 2vw;
+  justify-items: center;
+  justify-content: center;
+}
+
+.targeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.targeta:hover {
+  transform: scale(1.07);
+}
+
+.targeta img {
+  width: clamp(100px, 12vw, 220px);
+  height: clamp(100px, 12vw, 220px);
+  object-fit: contain;
+}
+
+.targeta.jugada {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* PANTALLA PERSONATGE */
+#pantalla-personatge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16vh;
+  gap: clamp(20px, 3vh, 40px);
+}
+
+.titol-feina {
+  font-family: 'Graphik', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: #2d1500;
+  margin: 0;
+  text-align: center;
+}
+
+.imatge-frase {
+  max-width: clamp(300px, 50vw, 700px);
+  width: 80%;
+  margin-top: clamp(40px, 6vh, 80px);
+}
+
+.contenidor-opcions {
+  display: flex;
+  gap: clamp(20px, 3vw, 60px);
+  justify-content: center;
+  margin-top: clamp(20px, 3vh, 40px);
+}
+
+.opcio-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.opcio {
+  width: clamp(180px, 25vw, 380px);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.opcio:hover {
+  transform: scale(1.05);
+}
+
+/* FEEDBACK */
+.feedback-wrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 10px auto 0;
+}
+
+.imatge-correcte,
+.imatge-incorrecte {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  visibility: hidden;
+}
+
+.imatge-correcte.visible,
+.imatge-incorrecte.visible {
+  visibility: visible;
+}
+
+/* BOTONS NAVEGACIÓ */
+#boto-seguent {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(120px, 12vw, 200px);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+#boto-seguent:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+#boto-tornar {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #df0e0e;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#subtitol-final {
+  text-align: center;
+  color: #e0684b;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  max-width: 60vw;
+  margin: 0 auto;
+  line-height: 1.5;
+  margin-top: -30px;
+}
