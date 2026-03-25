@@ -117,7 +117,7 @@ function iniciarJoc() {
     if (!subtitol) {
       subtitol = document.createElement('p');
       subtitol.id = 'subtitol-final';
-      subtitol.textContent = 'A AMPANS acompanyem a persones amb discapacitat intel·lectual i en risc d\'exclusió per fer realitat els seus projectes de vida';
+      subtitol.innerHTML = 'A AMPANS acompanyem a persones amb discapacitat intel·lectual<br> i en risc d\'exclusió per fer realitat els seus projectes de vida';
       document.querySelector('h1').insertAdjacentElement('afterend', subtitol);
     }
     subtitol.style.display = 'block';
